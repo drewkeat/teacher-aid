@@ -19,6 +19,7 @@
     "formik-mui": "^5.0.0-alpha.0",
     "next": "13.4.12",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "yup": "^1.2.0"
   }
 }

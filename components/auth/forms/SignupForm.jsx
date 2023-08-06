@@ -1,5 +1,5 @@
 import {
-  Box, TextField, FormControlLabel, Checkbox, Button, Grid, Link
+  Box, TextField, FormControlLabel, Checkbox, Button
 } from "@mui/material"
 
 export default function SignUpForm({children}){

@@ -13,15 +13,7 @@ import LoginForm from "./forms/LoginForm";
 import Copyright from "../global/Copyright";
 
 export default function LoginWrapper({ swapForm }) {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    const data = new FormData(event.currentTarget);
-    console.log({
-      email: data.get("email"),
-      password: data.get("password"),
-    });
-  };
-
+  
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
