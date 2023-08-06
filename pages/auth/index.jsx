@@ -1,10 +1,16 @@
-import LoginForm from "@/components/home/LoginForm"
-import SignUpForm from "@/components/home/SignupForm"
-import { useState } from "react"
+import LoginWrapper from "@/components/auth/LoginWrapper";
+import SignupWrapper from "@/components/auth/SignupWrapper";
+import { useState } from "react";
 
-export default function Auth(){
-  const [isLogin, setIsLogin] = useState(true)
-  return(
-    <>{isLogin ? <LoginForm swapForm={() => setIsLogin(!isLogin)}/> : <SignUpForm swapForm={()=>setIsLogin(!isLogin)}/>}</>
-  )
+export default function Auth() {
+  const [isLogin, setIsLogin] = useState(true);
+  return (
+    <>
+      {isLogin ? (
+        <LoginWrapper swapForm={() => setIsLogin(!isLogin)} />
+      ) : (
+        <SignupWrapper swapForm={() => setIsLogin(!isLogin)} />
+      )}
+    </>
+  );
 }
