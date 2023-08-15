@@ -21,7 +21,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 // const analytics = getAnalytics(app);
 const db = getFirestore(app)
-console.log(process.env.ENVIRONMENT === "DEVELOPMENT")
+
 if (process.env.ENVIRONMENT === "DEVELOPMENT") {
   connectFirestoreEmulator(db, "127.0.0.1", 8080);
 } 

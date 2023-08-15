@@ -1,25 +1,26 @@
-import { collection, doc, setDoc, getDoc, getDocs } from 'firebase/firestore'
-import { db } from "../firebase/firebase"
-
-const usersCollection = collection(db, 'users')
-
 export default class User{
   constructor({id=null, firstName, lastName, email, password}) {
-    this.id = id
     this.firstName = firstName
     this.lastName = lastName
     this.email = email
     this.password = password
+    this.id = id
   }
+}
 
-  //TODO: move this to another class that is responsible for converting Firestore data to custome classes
-  static async getAll() {
-    const usersSnapshot = await getDocs(usersCollection)
-    const users = []
-    usersSnapshot.forEach(doc => {
-      const u = new User({id: doc.id, ...doc.data()})
-      users.push(u)
-    })
-    return users
-  }
+export const userConverter = {
+  toFirestore: (user) => {
+    return {
+      firstName: user.firstName,
+      lastName: user.lastName,
+      email: user.email,
+      password: user.password,
+    }
+  },
+  fromFirestore: (snapshot, options) => {
+    const data = snapshot.data()
+    const u = new User({...data})
+    u.id = snapshot.id
+    return u
+  },
 }
