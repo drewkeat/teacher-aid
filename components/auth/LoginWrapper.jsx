@@ -40,7 +40,7 @@ export default function LoginWrapper({ swapForm }) {
             </Grid>
             <Grid item>
               <Link onClick={() => swapForm()} variant="body2">
-                {"Already have an account? Log In"}
+                {"Don't have an account? Sign Up"}
               </Link>
             </Grid>
           </Grid>

@@ -4,7 +4,13 @@ import {
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
+import { signUp } from "@/firebase/auth";
+
 export default function SignUpForm({children}){
+
+  const handleSignUp = (values) => {
+    signUp(values)
+  }
 
   const signupSchema = yup.object({
     firstName: yup.string().required(),
@@ -23,7 +29,7 @@ export default function SignUpForm({children}){
       confirmPassword: "",
     },
     validationSchema: signupSchema,
-    onSubmit: (values) => console.log(values)
+    onSubmit: (values) => handleSignUp(values)
   })
 
   return(

@@ -8,8 +8,14 @@ import {
 import { useFormik } from 'formik';
 import * as yup from 'yup';
 
+import { signIn } from "../../../firebase/auth";
+
 export default function LoginForm({ children }) {
   
+  const handleLogin = async (values) => {
+    await signIn(values)
+  }
+
   const loginSchema = yup.object({
     email: yup.string().email("Invalid Email").required(),
     password: yup.string().required()
@@ -21,7 +27,7 @@ export default function LoginForm({ children }) {
       password: ''
     },
     validationSchema: loginSchema,
-    onSubmit: (values) => console.log(values)
+    onSubmit: (values) => handleLogin(values)
   })
 
   return (
