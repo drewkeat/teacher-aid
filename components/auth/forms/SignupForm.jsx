@@ -35,7 +35,6 @@ export default function SignUpForm({children}){
   return(
     <Box component="form" onSubmit={formik.handleSubmit} noValidate sx={{ mt: 1 }}>
           <TextField
-            autoFocus
             margin="normal"
             required
             fullWidth
@@ -99,10 +98,6 @@ export default function SignUpForm({children}){
             onBlur={formik.handleBlur}
             error={formik.touched.confirmPassword && Boolean(formik.errors.confirmPassword)}
             helperText={formik.touched.confirmPassword && formik.errors.confirmPassword}
-          />
-          <FormControlLabel
-            control={<Checkbox value="remember" color="primary" />}
-            label="Remember me"
           />
           <Button
             type="submit"
